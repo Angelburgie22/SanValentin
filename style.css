@@ -1,0 +1,438 @@
+/* ---------------------- */
+/* Global Base Styles     */
+/* ---------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    /* Use flexbox to center content vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #fae1dd;
+  }
+  
+  /* Background Container for Pulsating Hearts */
+.background-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place behind all other content */
+}
+
+/* Optional: Remove the bottom margin from hearts inside the background container */
+.background-hearts .pulsating-heart {
+  margin-bottom: 0;
+  position: absolute; /* Ensure they use the inline positioning */
+}
+
+/* ---------------------- */
+/* Pulsating Heart Styles */
+/* (Unchanged from before) */
+.pulsating-heart {
+  height: 80px;
+  width: 80px;
+  background: #f30029;   
+  transform: rotate(-45deg);
+  box-shadow: 0 0 100px #f30029;
+  animation: h 0.7s linear infinite;
+}
+
+@keyframes h {
+  0% {
+    transform: rotate(-45deg) scale(1.07);
+  }
+  70% {
+    transform: rotate(-45deg) scale(1.0);
+  }
+  100% {
+    transform: rotate(-45deg) scale(0.8);
+  }
+}
+
+.pulsating-heart::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #f30029;
+  top: -50px;
+  border-radius: 50px 50px 0 0;
+  box-shadow: 0 0 100px #f30029;
+}
+
+.pulsating-heart::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #f30029;
+  right: -50px;
+  border-radius: 0 50px 50px 0;
+  box-shadow: 0 0 100px #f30029;
+}
+
+/* ---------------------- */
+/* (The rest of your CSS remains unchanged) */
+/* ---------------------- */
+
+  
+  /* ---------------------- */
+  /* Letter (Envelope) Styles */
+  /* ---------------------- */
+  .container {
+    position: relative;
+  }
+  
+  .valentines {
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+    animation: up 3s linear infinite;
+  }
+  
+  @keyframes up {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+  }
+  
+  .envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f08080; 
+  }
+  
+  .envelope:before {
+    content: "";
+    position: absolute;
+    width: 212px;
+    height: 212px;
+    background-color: #f08080; 
+    transform: rotate(45deg);
+    top: -105px;
+    left: 44px;
+    border-radius: 30px 0 0 0;
+  }
+  
+  .card {
+    position: absolute;
+    background-color: #eae2b7;
+    width: 270px;
+    height: 170px;
+    top: 5px;
+    left: 15px;
+    box-shadow: -5px -5px 100px rgba(0,0,0,0.4); 
+  }
+  
+  .card:before {
+    content: "";
+    position: absolute;
+    border: 3px dotted #003049;
+    width: 240px;
+    height: 140px;
+    left: 12px;
+    top: 12px;
+  }
+  
+  .text {
+    position: absolute;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 25px;
+    top: 19px;
+    left:65px;
+    color: #003049;
+  }
+  
+  /* Letter Heart (inside the card) */
+  /* This uses the original letter project styling */
+  .letter-heart {
+    background-color: #d62828;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 110px;
+    left: 110px;
+    transform: rotate(-45deg);
+  }
+  
+  .letter-heart:before,
+  .letter-heart:after {
+    content: "";
+    background-color: #d62828;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+  }
+  
+  .letter-heart:before {
+    top: -15px;
+    left: 0;
+  }
+  
+  .letter-heart:after {
+    left: 15px;
+    top: 0;
+  }
+  
+  /* Floating Hearts */
+  .hearts {
+    position: absolute;
+  }
+  
+  .one, .two, .three, .four, .five {
+    background-color: red;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 0 10px;
+    position: relative;
+    transform: rotate(-45deg);
+    top: 50px;
+  }
+  
+  .one:before,
+  .one:after,
+  .two:before,
+  .two:after,
+  .three:before,
+  .three:after,
+  .four:before,
+  .four:after,
+  .five:before,
+  .five:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+  }
+  
+  .one:before,
+  .two:before,
+  .three:before,
+  .four:before,
+  .five:before {
+    top: -5px;
+    left: 0;
+  }
+  
+  .one:after,
+  .two:after,
+  .three:after,
+  .four:after,
+  .five:after {
+    left: 5px;
+    top: 0;
+  }
+  
+  .one {
+    left: 10px;
+    animation: heart 1s ease-out infinite; 
+  }
+  
+  .two {
+    left: 30px;
+    animation: heart 2s ease-out infinite; 
+  }
+  
+  .three {
+    left: 50px;
+    animation: heart 1.5s ease-out infinite;
+  }
+  
+  .four {
+    left: 70px;
+    animation: heart 2.3s ease-out infinite;
+  }
+  
+  .five {
+    left: 90px;
+    animation: heart 1.7s ease-out infinite;
+  }
+  
+  @keyframes heart {
+    0% {
+      transform: translateY(0) rotate(-45deg) scale(0.3);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-150px) rotate(-45deg) scale(1.3);
+      opacity: 0.5;
+    }
+  }
+  
+  .front {
+    position: absolute;
+    border-right: 180px solid #f4978e;
+    border-top: 95px solid transparent;
+    border-bottom: 100px solid transparent;
+    left: 120px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    z-index: 10;
+  }
+  
+  .front:before {
+    content: "";
+    position: absolute;
+    border-left: 300px solid #f8ad9d;
+    border-top: 195px solid transparent;
+    left: -120px;
+    top: -95px;
+    width: 0;
+    height: 0;
+  }
+  
+  .shadow {
+    position: absolute;
+    width: 330px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 265px;
+    left: -15px;
+    animation: scale 3s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes scale {
+    0%, 100% {
+      transform: scaleX(1);
+    }
+    50% {
+      transform: scaleX(0.85);
+    }
+  }
+
+  /* --- PDF Modal Styles --- */
+.pdf-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 100; /* Above other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* More transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-content {
+  background-color: #fefefe;
+  padding: 10px;
+  border: 1px solid #ccc;  /* Thinner, grayish border */
+  border-radius: 10px;     /* Rounded corners */
+  width: 400px;            /* Shorter width so the PDF isn’t shortened vertically */
+  max-width: 90%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.pdf-content iframe {
+  width: 100%;
+  height: 600px;  /* Set a height that displays your PDF content without shortening it */
+}
+
+/* Close button styling */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+/* ---------------------- */
+/* Scaled Background Elements */
+/* ---------------------- */
+
+.bg-card {
+  position: absolute;
+  background-color: #eae2b7;
+  width: 189px;  /* 270px * 0.7 */
+  height: 119px; /* 170px * 0.7 */
+  top: 3.5px;    /* 5px * 0.7 */
+  left: 10.5px;  /* 15px * 0.7 */
+  box-shadow: -3.5px -3.5px 70px rgba(0,0,0,0.4); /* Scaled shadow */
+}
+
+.bg-card:hover{
+  cursor: pointer;
+  animation: up 1s linear infinite;
+}
+
+.bg-card:before {
+  content: "";
+  position: absolute;
+  border: 2.1px dotted #003049; /* 3px * 0.7 */
+  width: 168px;  /* 240px * 0.7 */
+  height: 98px;  /* 140px * 0.7 */
+  left: 8.4px;   /* 12px * 0.7 */
+  top: 8.4px;    /* 12px * 0.7 */
+}
+
+/* Center the number (text) on top of the heart */
+.bg-text {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Make sure it sits on top */
+  font-family: 'Brush Script MT', cursive;
+  font-size: 16px;
+  color: #003049;
+}
+
+/* Center the heart behind the number */
+.bg-letter-heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* First, center the heart */
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 1;
+  width: 15px;
+  height: 15px;
+  background-color: #d62828;
+}
+
+/* Create the two lobes of the heart */
+.bg-letter-heart:before,
+.bg-letter-heart:after {
+  content: "";
+  position: absolute;
+  background-color: #d62828;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.bg-letter-heart:before {
+  top: -7.5px;
+  left: 0;
+}
+
+.bg-letter-heart:after {
+  left: 7.5px;
+  top: 0;
+}
